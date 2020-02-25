@@ -15,8 +15,10 @@ export default class PersonList extends React.Component {
         persons.forEach(id => {
           axios.get(`https://hacker-news.firebaseio.com/v0/item/` + id + '.json')
           .then((res) => {
-            this.state.persons.push(res.data)
-          })
+            this.setState((state) => ({
+            persons: [...this.state.persons, res.data] 
+          }))
+        })
           .catch((err) =>{
             this.err=err
         })
@@ -29,11 +31,17 @@ export default class PersonList extends React.Component {
     const {persons} = this.state
     return (
       <ul>
-        {persons.map(person => <li>{person}</li>)}
+        {persons.map(person => 
+        <li>
+        <h3>{person.title}</h3>
+        <h4>By: {person.by}</h4>
+        <h5>Score: {person.score}</h5>
+        <a href={person.url}>LINK</a>
+        
+       
+        </li>)}
         {console.log('hey',persons)}
       </ul>
-
-      
     )
   }
 }
