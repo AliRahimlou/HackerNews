@@ -1,26 +1,40 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import axios from 'axios';
+
+export default class PersonList extends React.Component {
+  state = {
+    persons: []
+  }
+
+  componentDidMount() {
+    axios.get(`https://hacker-news.firebaseio.com/v0/topstories.json`)
+      .then(res => {
+        const persons = res.data.slice(0, 10);
+        // this.setState({ persons });
+        persons.forEach(id => {
+          axios.get(`https://hacker-news.firebaseio.com/v0/item/` + id + '.json')
+          .then((res) => {
+            this.state.persons.push(res.data)
+          })
+          .catch((err) =>{
+            this.err=err
+        })
+        });
+        
+      })
+  }
+
+  render() {
+    const {persons} = this.state
+    return (
+      <ul>
+        {persons.map(person => <li>{person}</li>)}
+        {console.log('hey',persons)}
+      </ul>
+
+      
+    )
+  }
 }
 
-export default App;
