@@ -7,12 +7,13 @@ import { withRouter } from 'react-router-dom'
 const Button = withRouter(({ history }) => (
     <MDBBtn
      
-      color="primary"
+      color="grey lighten-3"
        type="button"
        onClick={() => {history.push('/home')}}
     >
       GO TO NEWS!
     </MDBBtn>
+    
   ))
 
 
