@@ -30,19 +30,7 @@ export default class HackerNews extends React.Component {
 
   render() {
     const {news} = this.state
-    
     return (
-
-    // <ul> 
-    //     {news.map(data => 
-    //     <li>
-    //     <h3>{data.title}</h3>
-    //     <h4>By: {data.by}</h4>
-    //     <h5>Score: {data.score}</h5>
-    //     <a href={data.url}target="_blank"rel="noopener noreferrer">LINK TO STORY</a>
-    //     </li>)}
-    //     {console.log('hey',news)}
-    //   </ul>
     <MDBContainer> HackerNews by Ali
       {news.map(data => 
     <MDBCard style={{ width: "", marginTop: "1rem" }}>
@@ -63,3 +51,13 @@ export default class HackerNews extends React.Component {
   }
 }
 
+    // <ul> 
+    //     {news.map(data => 
+    //     <li>
+    //     <h3>{data.title}</h3>
+    //     <h4>By: {data.by}</h4>
+    //     <h5>Score: {data.score}</h5>
+    //     <a href={data.url}target="_blank"rel="noopener noreferrer">LINK TO STORY</a>
+    //     </li>)}
+    //     {console.log('hey',news)}
+    //   </ul>

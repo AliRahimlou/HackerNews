@@ -1,5 +1,5 @@
 import React from "react";
-import { MDBCol, MDBBtn } from "mdbreact";
+import { MDBCol, MDBBtn, MDBContainer } from "mdbreact";
 // import HomeButton from '../components/homebutton'
 import { withRouter } from 'react-router-dom'
 
@@ -35,6 +35,8 @@ class signIn extends React.Component {
   render() {
     
     return (
+        <MDBContainer className= "signIn">
+            
       <div>
         <form
           className="needs-validation"
@@ -115,6 +117,7 @@ class signIn extends React.Component {
          
         </form>
       </div>
+      </MDBContainer>
     );
   }
 }
