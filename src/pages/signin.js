@@ -36,14 +36,15 @@ class signIn extends React.Component {
   render() {
     
     const {email} = this.state
-        return email.includes("@") & email.includes(".com")||
-        email.includes("@") & email.includes(".net")||
-        email.includes("@") & email.includes(".edu")||
-        email.includes("@") & email.includes(".gov")||
-        email.includes("@") & email.includes(".us")||
-        email.includes("@") & email.includes(".it")||
-        email.includes("@") & email.includes(".de")||
-        email.includes("@") & email.includes(".ru") ? 
+    const {fname} = this.state
+    const {lname} = this.state
+        return email.includes("@") & email.includes(".com") & fname.length > 0 & lname.length > 0 ||
+        email.includes("@") & email.includes(".net") & fname.length > 0 & lname.length > 0 ||
+        email.includes("@") & email.includes(".edu") & fname.length > 0 & lname.length > 0 ||
+        email.includes("@") & email.includes(".gov") & fname.length > 0 & lname.length > 0 ||
+        email.includes("@") & email.includes(".us") & fname.length > 0 & lname.length > 0 ||
+        email.includes("@") & email.includes(".it") & fname.length > 0 & lname.length > 0 ||
+        email.includes("@") & email.includes(".de") & fname.length > 0 & lname.length > 0 ? 
        
         <MDBContainer className= "d-flex justify-content-center">
       
