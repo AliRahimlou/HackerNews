@@ -36,7 +36,7 @@ class signIn extends React.Component {
   render() {
     
     const {email} = this.state
-        return email.includes("@"&&".com") ? 
+        return email.includes("@"&&".") ? 
        
         <MDBContainer className= "d-flex justify-content-center">
       
