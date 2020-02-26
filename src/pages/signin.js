@@ -1,7 +1,8 @@
 import React from "react";
-import { MDBCol, MDBBtn, MDBContainer } from "mdbreact";
+import {MDBCol, MDBBtn, MDBContainer } from "mdbreact";
 // import HomeButton from '../components/homebutton'
 import { withRouter } from 'react-router-dom'
+
 
 const Button = withRouter(({ history }) => (
     <MDBBtn
@@ -35,8 +36,9 @@ class signIn extends React.Component {
   render() {
     
     return (
-        <MDBContainer className= "signIn">
-            
+       
+        <MDBContainer className= "d-flex justify-content-center">
+      
       <div>
         <form
           className="needs-validation"
@@ -44,7 +46,7 @@ class signIn extends React.Component {
           noValidate
         >
           
-            <MDBCol md="4" className="mb-3">
+            <MDBCol  md="12" className="mb-3">
               <label
                 htmlFor="defaultFormRegisterNameEx"
                 className="grey-text"
@@ -63,7 +65,7 @@ class signIn extends React.Component {
               />
               <div className="valid-feedback">Looks good!</div>
             </MDBCol>
-            <MDBCol md="4" className="mb-3">
+            <MDBCol md="12" className="mb-3">
               <label
                 htmlFor="defaultFormRegisterEmailEx2"
                 className="grey-text"
@@ -82,7 +84,7 @@ class signIn extends React.Component {
               />
               <div className="valid-feedback">Looks good!</div>
             </MDBCol>
-            <MDBCol md="4" className="mb-3">
+            <MDBCol md="12" className="mb-3">
               <label
                 htmlFor="defaultFormRegisterConfirmEx3"
                 className="grey-text"

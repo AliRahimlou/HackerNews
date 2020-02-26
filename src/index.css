@@ -12,8 +12,9 @@ code {
     monospace;
 }
 
-.signIn{
-  width: 100%!important;
-  margin: 10% 35% 20%!important;
+.d-flex{
+ 
+margin-top: 20vh!important;
+
   
 }
