@@ -1,6 +1,5 @@
 import React from "react";
 import {MDBCol, MDBBtn, MDBContainer } from "mdbreact";
-// import HomeButton from '../components/homebutton'
 import { withRouter } from 'react-router-dom'
 
 
@@ -36,7 +35,8 @@ class signIn extends React.Component {
 
   render() {
     
-    return (
+    const {email} = this.state
+        return email.includes("@"&&".com") ? 
        
         <MDBContainer className= "d-flex justify-content-center">
       
@@ -107,21 +107,86 @@ class signIn extends React.Component {
               </small>
             </MDBCol>
 
-     {/* <HomeButton/> */}
-
 
      <Button/>
 
-     {/* <MDBBtn 
-     
-     color="primary" type="submit">
-            Submit Form
-          </MDBBtn> */}
          
         </form>
       </div>
       </MDBContainer>
-    );
+    :( 
+    
+    <MDBContainer className= "d-flex justify-content-center">
+      
+    <div>
+      <form
+        className="needs-validation"
+        onSubmit={this.submitHandler}
+        noValidate
+      >
+        
+          <MDBCol  md="12" className="mb-3">
+            <label
+              htmlFor="defaultFormRegisterNameEx"
+              className="grey-text"
+            >
+              First name
+            </label>
+            <input
+              value={this.state.fname}
+              name="fname"
+              onChange={this.changeHandler}
+              type="text"
+              id="defaultFormRegisterNameEx"
+              className="form-control"
+              placeholder="First name"
+              required
+            />
+            <div className="valid-feedback">Looks good!</div>
+          </MDBCol>
+          <MDBCol md="12" className="mb-3">
+            <label
+              htmlFor="defaultFormRegisterEmailEx2"
+              className="grey-text"
+            >
+              Last name
+            </label>
+            <input
+              value={this.state.lname}
+              name="lname"
+              onChange={this.changeHandler}
+              type="text"
+              id="defaultFormRegisterEmailEx2"
+              className="form-control"
+              placeholder="Last name"
+              required
+            />
+            <div className="valid-feedback">Looks good!</div>
+          </MDBCol>
+          <MDBCol md="12" className="mb-3">
+            <label
+              htmlFor="defaultFormRegisterConfirmEx3"
+              className="grey-text"
+            >
+              Email
+            </label>
+            <input
+              value={this.state.email}
+              onChange={this.changeHandler}
+              type="email"
+              id="defaultFormRegisterConfirmEx3"
+              className="form-control"
+              name="email"
+              placeholder="Your Email address"
+              required
+            />
+            <small id="emailHelp" className="form-text text-muted">
+              We'll never share your email with anyone else.
+            </small>
+          </MDBCol>
+      </form>
+    </div>
+    </MDBContainer>)
   }
 }
 
