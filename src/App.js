@@ -1,48 +1,23 @@
-import React from 'react';
+import React from "react";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 
-import axios from 'axios';
+import signIn from "./pages/signin";
+import home from "./pages/home";
 
-export default class PersonList extends React.Component {
-  state = {
-    persons: []
-  }
 
-  componentDidMount() {
-    axios.get(`https://hacker-news.firebaseio.com/v0/topstories.json`)
-      .then(res => {
-        const persons = res.data.slice(0, 10);
-        // this.setState({ persons });
-        persons.forEach(id => {
-          axios.get(`https://hacker-news.firebaseio.com/v0/item/` + id + '.json')
-          .then((res) => {
-            this.setState((state) => ({
-            persons: [...this.state.persons, res.data] 
-          }))
-        })
-          .catch((err) =>{
-            this.err=err
-        })
-        });
+
+function App() {
+  return (
+    <Router>
+      <div>
         
-      })
-  }
-
-  render() {
-    const {persons} = this.state
-    return (
-      <ul>
-        {persons.map(person => 
-        <li>
-        <h3>{person.title}</h3>
-        <h4>By: {person.by}</h4>
-        <h5>Score: {person.score}</h5>
-        <a href={person.url}>LINK</a>
-        
+        <Route exact path="/" component={signIn} />
+        <Route exact path="/home" component={home} />
        
-        </li>)}
-        {console.log('hey',persons)}
-      </ul>
-    )
-  }
+        
+      </div>
+    </Router>
+  );
 }
 
+export default App;
